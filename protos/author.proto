@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "./blogpost";
+
+import "protos/common.proto";
+
+
+// The service definition.
+service AuthorService {
+    // Ping rpc...
+    rpc Ping (Empty) returns (Pong) {}
+}

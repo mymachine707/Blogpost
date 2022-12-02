@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+option go_package = "./blogpost";
+
+// protos common.proto filedan import qilindi
+import "protos/common.proto";
+
+
+
+// The service definition.
+service ArticleService {
+    // Ping rpc...
+    rpc Ping (Empty) returns (Pong) {}
+    rpc CreateArticle (CreateArticleRequest) returns (Article) {}
+    rpc UpdateArticle (UpdateArticleRequest) returns (Article) {}
+    rpc DeleteArticle (DeleteArticleRequest) returns (Article) {}
+    rpc GetArticleList (GetArticleListRequest) returns (GetArticleListResponse) {}
+    rpc GetArticleById (GetArticleByIDRequest) returns (GetArticleByIDResponse) {} 
+}
+
+message Content { //+
+    string title =1;
+    string body =2;
+}
+
+message Article { //+
+    string id = 1;
+    Content content = 2;
+    string author_id = 3;
+    string created_at = 4;
+    string updated_at = 5;
+}
+
+message CreateArticleRequest{
+    Content content = 1;
+    string author_id = 2;
+}
+
+message UpdateArticleRequest{
+    string id = 1;
+    Content content =2;
+}
+
+message DeleteArticleRequest{
+    string id = 1;
+}
+
+message GetArticleListRequest{
+    int32 offset = 1;
+    int32 limit = 2;
+    string search = 3;
+}
+message GetArticleListResponse{
+    repeated Article articles = 1;
+}
+
+message GetArticleByIDRequest{
+    string id =1;
+}
+
+message GetArticleByIDResponse{
+    message Author {
+        string id =1;
+        string firstname =2;
+        string lastname =3;
+        string middlename =4;
+        string fullname = 5;
+        string created_at =6;
+        string updated_at =7;
+    }
+    string id = 1;
+    Content content = 2;
+    Author author = 3;
+    string created_at = 4;
+    string updated_at = 5;
+}
+
