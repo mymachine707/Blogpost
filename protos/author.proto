@@ -9,4 +9,62 @@ import "protos/common.proto";
 service AuthorService {
     // Ping rpc...
     rpc Ping (Empty) returns (Pong) {}
+    rpc CreateAuthor (CreateAuthorRequest) returns (Author) {}
+    rpc UpdateAuthor (UpdateAuthorRequest) returns (Author) {}
+    rpc DeleteAuthor (DeleteAuthorRequest) returns (Author) {}
+    rpc GetAuthorList (GetAuthorListRequest) returns (GetAuthorListResponse) {}
+    rpc GetAuthorById (GetAuthorByIDRequest) returns (GetAuthorByIDResponse) {} 
+}
+
+
+message Author { //+
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string middlename = 4;
+    string fullname = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message CreateAuthorRequest{
+    string firstname = 1;
+    string lastname = 2;
+    string middlename = 3;
+}
+
+message UpdateAuthorRequest{
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string middlename = 4;
+}
+
+message DeleteAuthorRequest{
+    string id = 1;
+}
+
+message GetAuthorListRequest{
+    int32 offset = 1;
+    int32 limit = 2;
+    string search = 3;
+}
+message GetAuthorListResponse{
+    repeated Author Authors = 1;
+}
+
+message GetAuthorByIDRequest{
+    string id =1;
+}
+
+message GetAuthorByIDResponse{
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string middlename = 4;
+    string fullname = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
 }

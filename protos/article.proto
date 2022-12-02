@@ -29,6 +29,7 @@ message Article { //+
     string author_id = 3;
     string created_at = 4;
     string updated_at = 5;
+    string deleted_at =6;
 }
 
 message CreateArticleRequest{
@@ -67,11 +68,13 @@ message GetArticleByIDResponse{
         string fullname = 5;
         string created_at =6;
         string updated_at =7;
+        string deleted_at =8;
     }
     string id = 1;
     Content content = 2;
     Author author = 3;
     string created_at = 4;
     string updated_at = 5;
+    string deleted_at = 8;
 }
 
