@@ -4,3 +4,6 @@
 [submodule "api_getway"]
 	path = api_getway
 	url = git@github.com:mymachine707/api_getway.git
+[submodule "auth_service"]
+	path = auth_service
+	url = https://github.com/mymachine707/auth_service.git
