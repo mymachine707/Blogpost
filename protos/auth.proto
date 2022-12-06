@@ -23,8 +23,8 @@ service UserService {
 
 
 message LoginUserRequest {
-    string username = 2;
-    string password = 3;
+    string username = 1;
+    string password = 2;
 }
 
 message TokenResponse {
@@ -51,9 +51,9 @@ message User { //+
 }
 
 message CreateUserRequest{
-    string username = 2;
-    string password = 3;
-    string user_type = 4;
+    string username = 1;
+    string password = 2;
+    string user_type = 3;
 }
 
 message UpdateUserRequest{
